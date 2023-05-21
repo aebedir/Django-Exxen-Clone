@@ -15,12 +15,15 @@
 
     {% include 'includes/_navbar.html' %}
 
-    {% block content %}
-    
-    {% endblock content %}
-      
-    
+    {% if messages %}
+        {% for mesaj in messages %}
+            <div class="alert alert-{{mesaj.tags}} text-center">
+                {{mesaj}}
+            </div>
+        {% endfor %}    
+    {% endif %}
 
+    {% block content %}
     <!-- Form -->
     <div class="container-fluid form sticky-md-top">
         <div class="container">            
@@ -107,6 +110,12 @@
         <!-------------------- Yardım ----------------------->  
     </div>
     <!-- Filmler -->
+    {% endblock content %}
+      
+    
+
+    
+
     
         
 

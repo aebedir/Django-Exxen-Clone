@@ -1,39 +1,55 @@
 <!-- Navbar -->
-<div class="container-fluid bg-warning">
-    <div class="container d-flex align-items-center pt-3">
-        <div class="me-auto ">
-            <a href=""><img class="" src="/static/img/logo-web.svg" alt=""></a>
-        </div>
-        <div class="d-none d-xl-block ">
-            <button class="btn  text-warning fw-bold rounded-0 me-2 exxen-spor">EXXENSPOR Ticari Üye Ol</button>
-        </div>
-        <div class="d-flex align-items-center " >
-            <div >
-                <button class="btn btn-otline border border-2 rounded-0 fw-bold uye-ol ">Üye Girişi</button>
+<div class="container-fluid bg-warning p-0">
+    <div class="container mb-2 ">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid mt-3 mb-2 ">
+                <a class="navbar-brand" href=""><img src="/static/img/logo-web.svg" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse text-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link active " href="/" aria-current="page">
+                                <button class="btn  text-warning text-uppercase fw-bold rounded-0 me-2 exxen-spor" >{{request.user}}</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/user/logout/">
+                                <button class="btn  bg-warning fw-bold rounded-0 me-2 uye-ol">Çıkış Yap</button>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active " href="/user/register/">
+                                <button class="btn  text-warning fw-bold rounded-0 me-2 exxen-spor" aria-current="page">EXXENSPOR Ticari Üye Ol</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/user/login/">
+                                <button class="btn  bg-warning fw-bold rounded-0 me-2 uye-ol">Üye Girişi</button>
+                            </a>
+                        </li>
+                        {% endif %}
+                        
+                        <li class="nav-item dropdown mt-2">
+                            <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-globe me-2"></i> TR
+                            </a>
+                            <ul class="dropdown-menu p-0 m-0">
+                            <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Espanol</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>       
             </div>
-            <div>
-                <ul class="list-unstyled mt-3">        
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fa-solid fa-globe me-2"></i> TR
-                      </a>
-                      <ul class="dropdown-menu p-0 m-0">
-                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
-                        <li><a class="dropdown-item" href="#">Espanol</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-            </div> 
-        </div>
-        
-        
+        </nav>
     </div>
-    <div class="container mt-0">
-        <div class="d-block d-xl-none ">
-            <button class="btn text-warning fw-bold rounded-0 me-2 w-100 exxen-spor">EXXENSPOR Ticari Üye Ol</button>
-        </div>
-    </div>
+    
     
 </div> 
 <!-------------------- Navbar ----------------------->
